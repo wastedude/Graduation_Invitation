@@ -4,7 +4,7 @@ import datetime
 
 # --- Configuration ---
 # You can change the password here.
-RSVP_PASSWORD = "your_secret_password"
+RSVP_PASSWORD = "Graduate@2025"
 # File to store the RSVPs
 DATA_FILE = "rsvps.csv"
 
