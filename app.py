@@ -4,7 +4,7 @@ import datetime
 
 # --- Configuration ---
 # You can change the password here.
-RSVP_PASSWORD = "Graduate@2025"
+RSVP_PASSWORD = "your_secret_password"
 # File to store the RSVPs
 DATA_FILE = "rsvps.csv"
 
@@ -83,12 +83,18 @@ page = query_params.get("page", "form")
 
 if page == "form":
     # --- RSVP Form Page ---
-    st.title("You're Invited!")
+    st.title("You're Invited!🎉👨‍🎓🎉")
+    st.markdown(
+        "Hi there! This invitation is from Joram G Kariuki. Please reach out to me via 0725383731, if you have any questions or concerns about attending. We can't wait to see you!"
+    )
     st.subheader("Please RSVP for my Graduation Ceremony & Celebration.")
 
     with st.form(key='rsvp_form'):
         name = st.text_input("Full Name", placeholder="e.g., Jane Doe")
-        guests = st.number_input("Number of Guests (including yourself)", min_value=1, value=1)
+        
+        # Guest input is now always visible
+        guests = st.number_input("Number of Guests (including yourself)", min_value=0, value=1)
+        
         message = st.text_area("Message (Optional)", placeholder="Leave a congratulatory message!")
         
         submit_button = st.form_submit_button(label="Submit RSVP")
@@ -98,11 +104,12 @@ if page == "form":
             initialize_data_file()
             save_rsvp(name, guests, message)
             st.success("RSVP submitted successfully! Thank you!")
-            st.info("You can refresh the page to submit another RSVP.")
+            #st.info("You can refresh the page to submit another RSVP.")
         else:
             st.error("Please enter your full name to RSVP.")
 
     st.markdown("---")
+    st.markdown("This was developed by the Graduate😅")
     #st.markdown("For private access, go to the URL: `?page=admin` and enter the password.")
 
 elif page == "admin":
