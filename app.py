@@ -87,8 +87,6 @@ page = query_params.get("page", "form")
 if page == "form":
     # --- RSVP Form Page ---
     st.title("You're Invited!")
-
-    
     st.markdown(
         "Hi there This invitation is from **[Your Name]**. Please reach out to me via **[Your Email]** or **[Your Phone Number]** if you have any questions or concerns about attending. We can't wait to see you!"
     )
@@ -109,7 +107,7 @@ if page == "form":
             initialize_data_file()
             save_rsvp(name, guests, message)
             st.success("RSVP submitted successfully! Thank you!")
-            st.info("You can refresh the page to submit another RSVP.")
+            #st.info("You can refresh the page to submit another RSVP.")
         else:
             st.error("Please enter your full name to RSVP.")
 
