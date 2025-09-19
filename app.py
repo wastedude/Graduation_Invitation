@@ -1,12 +1,15 @@
 import streamlit as st
 import pandas as pd
 import datetime
+import time
 
 # --- Configuration ---
 # You can change the password here.
-RSVP_PASSWORD = "Graduate@2025"
+RSVP_PASSWORD = "your_secret_password"
 # File to store the RSVPs
 DATA_FILE = "rsvps.csv"
+# Set your graduation date and time here
+GRADUATION_DATE = datetime.datetime(2025, 11, 1, 14, 0, 0) # Format: YYYY, M, D, H, M, S
 
 # --- Functions to manage data ---
 def initialize_data_file():
@@ -84,11 +87,19 @@ page = query_params.get("page", "form")
 if page == "form":
     # --- RSVP Form Page ---
     st.title("You're Invited!")
+
+    
+    st.markdown(
+        "Hi there This invitation is from **[Your Name]**. Please reach out to me via **[Your Email]** or **[Your Phone Number]** if you have any questions or concerns about attending. We can't wait to see you!"
+    )
     st.subheader("Please RSVP for my Graduation Ceremony & Celebration.")
 
     with st.form(key='rsvp_form'):
         name = st.text_input("Full Name", placeholder="e.g., Jane Doe")
-        guests = st.number_input("Number of Guests (including yourself)", min_value=1, value=1)
+        
+        # Guest input is now always visible
+        guests = st.number_input("Number of Guests (including yourself)", min_value=0, value=1)
+        
         message = st.text_area("Message (Optional)", placeholder="Leave a congratulatory message!")
         
         submit_button = st.form_submit_button(label="Submit RSVP")
@@ -103,6 +114,25 @@ if page == "form":
             st.error("Please enter your full name to RSVP.")
 
     st.markdown("---")
+    st.markdown("Developed by The Graduate😂.")
+    # Live countdown timer
+    countdown_placeholder = st.empty()
+    while datetime.datetime.now() < GRADUATION_DATE:
+        time_left = GRADUATION_DATE - datetime.datetime.now()
+        days = time_left.days
+        hours, remainder = divmod(time_left.seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        
+        countdown_placeholder.markdown(f"""
+        ### Time to go:
+        <div style="text-align:center; font-size: 2em; font-weight: bold;">
+            {days} Days {hours} Hrs {minutes} Mins {seconds} Secs
+        </div>
+        """, unsafe_allow_html=True)
+        time.sleep(1)
+
+    countdown_placeholder.markdown("### The graduation has begun! Congratulations!")
+
     #st.markdown("For private access, go to the URL: `?page=admin` and enter the password.")
 
 elif page == "admin":
