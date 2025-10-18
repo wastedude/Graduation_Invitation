@@ -88,7 +88,7 @@ if page == "form":
     # --- RSVP Form Page ---
     st.title("You're Invited!")
     st.markdown(
-        "Hi there This invitation is from **[Your Name]**. Please reach out to me via **[Your Email]** or **[Your Phone Number]** if you have any questions or concerns about attending. We can't wait to see you!"
+        "Hi there This invitation is from Joram Kariuki. Please reach out to me via, if you have any questions or concerns about attending. I can't wait to see you!. Also if you have an old Macbook you arent using or a core i7 machine feel free togift me😂😂"
     )
     st.subheader("Please RSVP for my Graduation Ceremony & Celebration.")
 
