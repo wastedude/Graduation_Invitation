@@ -89,7 +89,7 @@ if page == "form":
     st.set_page_config(page_title="Graduation RSVP", page_icon="👨‍🎓")
     st.title("You're Invited!🎉👨‍🎓🎉")
     st.markdown(
-        "Hi there This invitation is from Joram Kariuki. Please reach out to me via, if you have any questions or concerns about attending. I can't wait to see you!. Also if you have an old Macbook you arent using or a core i7 machine feel free to gift me😂😂"
+        "Hi there This invitation is from Joram Kariuki. Please reach out to me via 0725383731, if you have any questions or concerns about attending. I can't wait to see you!. Also if you have an old Macbook you arent using or a core i7 machine feel free to gift me😂😂"
     )
     st.subheader("Please RSVP for my Graduation Ceremony & Celebration.")
 
